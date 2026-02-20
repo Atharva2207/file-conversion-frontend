@@ -1,4 +1,4 @@
-import { FileText, Image, Table, FileImage, FileDown, Minimize2, Type } from "lucide-react";
+import { FileText, Image, Table, FileImage,Minimize2, Type } from "lucide-react";
 
 export interface Tool {
   id: string;
