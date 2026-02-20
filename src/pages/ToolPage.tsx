@@ -283,10 +283,10 @@ export default function ToolPage() {
       {/* Footer */}
       <footer className="border-t border-border py-6">
         <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <span>© 2025 FileConverter</span>
+          <span>© 2026 FileConverter</span>
           <div className="flex items-center gap-6">
-            <span className="hover:text-foreground cursor-pointer transition-colors">Privacy</span>
-            <span className="hover:text-foreground cursor-pointer transition-colors">Terms</span>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </footer>
