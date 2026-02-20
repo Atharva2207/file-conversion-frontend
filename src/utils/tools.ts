@@ -1,11 +1,4 @@
-import {
-  FileText,
-  Image,
-  Table,
-  FileSpreadsheet,
-  FileImage,
-  ArrowRightLeft,
-} from "lucide-react";
+import { FileText, Image, Table, FileImage, FileDown, Minimize2, Type } from "lucide-react";
 
 export interface Tool {
   id: string;
@@ -24,7 +17,7 @@ export const tools: Tool[] = [
   {
     id: "pdf-to-docx",
     title: "PDF to Word",
-    description: "Convert PDF documents to editable DOCX files",
+    description: "Convert PDF documents to editable Word files",
     from: "pdf",
     to: "docx",
     fromLabel: "PDF",
@@ -34,9 +27,33 @@ export const tools: Tool[] = [
     bgColor: "bg-red-500/10",
   },
   {
+    id: "docx-to-pdf",
+    title: "Word to PDF",
+    description: "Convert Word documents to PDF",
+    from: "docx",
+    to: "pdf",
+    fromLabel: "DOCX",
+    toLabel: "PDF",
+    icon: FileText,
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+  },
+  {
+    id: "pdf-to-png",
+    title: "PDF to Image",
+    description: "Convert PDF pages to PNG images",
+    from: "pdf",
+    to: "png",
+    fromLabel: "PDF",
+    toLabel: "PNG",
+    icon: Image,
+    color: "text-purple-500",
+    bgColor: "bg-purple-500/10",
+  },
+  {
     id: "pdf-to-csv",
     title: "PDF to CSV",
-    description: "Extract tables from PDF into CSV spreadsheets",
+    description: "Extract tables from PDF into spreadsheets",
     from: "pdf",
     to: "csv",
     fromLabel: "PDF",
@@ -44,6 +61,18 @@ export const tools: Tool[] = [
     icon: Table,
     color: "text-green-500",
     bgColor: "bg-green-500/10",
+  },
+  {
+    id: "pdf-to-txt",
+    title: "PDF to Text",
+    description: "Extract all text from PDF documents",
+    from: "pdf",
+    to: "txt",
+    fromLabel: "PDF",
+    toLabel: "TXT",
+    icon: Type,
+    color: "text-slate-500",
+    bgColor: "bg-slate-500/10",
   },
   {
     id: "jpg-to-pdf",
@@ -65,9 +94,9 @@ export const tools: Tool[] = [
     to: "pdf",
     fromLabel: "PNG",
     toLabel: "PDF",
-    icon: Image,
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
+    icon: FileImage,
+    color: "text-cyan-500",
+    bgColor: "bg-cyan-500/10",
   },
   {
     id: "jpeg-to-pdf",
@@ -90,8 +119,32 @@ export const tools: Tool[] = [
     fromLabel: "WEBP",
     toLabel: "PDF",
     icon: Image,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
+    color: "text-teal-500",
+    bgColor: "bg-teal-500/10",
+  },
+  {
+    id: "docx-to-txt",
+    title: "Word to Text",
+    description: "Extract plain text from Word documents",
+    from: "docx",
+    to: "txt",
+    fromLabel: "DOCX",
+    toLabel: "TXT",
+    icon: Type,
+    color: "text-indigo-500",
+    bgColor: "bg-indigo-500/10",
+  },
+  {
+    id: "compress-pdf",
+    title: "Compress PDF",
+    description: "Reduce PDF file size without losing quality",
+    from: "pdf",
+    to: "pdf_compressed",
+    fromLabel: "PDF",
+    toLabel: "PDF",
+    icon: Minimize2,
+    color: "text-rose-500",
+    bgColor: "bg-rose-500/10",
   },
 ];
 
@@ -107,8 +160,9 @@ export function getAcceptString(ext: string): string {
     png: ".png",
     webp: ".webp",
     gif: ".gif",
-    docx: ".docx",
+    docx: ".docx,.doc",
     csv: ".csv",
+    txt: ".txt",
   };
   return map[ext] || ".*";
 }
