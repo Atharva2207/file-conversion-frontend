@@ -1,4 +1,4 @@
-import { FileText, Image, Table, FileImage,Minimize2, Type } from "lucide-react";
+import { FileText, Image, Table,Minimize2, Type } from "lucide-react";
 
 export interface Tool {
   id: string;
@@ -14,6 +14,18 @@ export interface Tool {
 }
 
 export const tools: Tool[] = [
+  {
+    id: "image-to-pdf",
+    title: "Image to PDF",
+    description: "Convert any image (JPG, PNG, WebP, GIF) to PDF — auto-detected",
+    from: "image",
+    to: "pdf",
+    fromLabel: "IMAGE",
+    toLabel: "PDF",
+    icon: Image,
+    color: "text-orange-500",
+    bgColor: "bg-orange-500/10",
+ },
   {
     id: "pdf-to-docx",
     title: "PDF to Word",
@@ -39,18 +51,6 @@ export const tools: Tool[] = [
     bgColor: "bg-blue-500/10",
   },
   {
-    id: "pdf-to-png",
-    title: "PDF to Image",
-    description: "Convert PDF pages to PNG images",
-    from: "pdf",
-    to: "png",
-    fromLabel: "PDF",
-    toLabel: "PNG",
-    icon: Image,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
-  },
-  {
     id: "pdf-to-csv",
     title: "PDF to CSV",
     description: "Extract tables from PDF into spreadsheets",
@@ -73,42 +73,6 @@ export const tools: Tool[] = [
     icon: Type,
     color: "text-slate-500",
     bgColor: "bg-slate-500/10",
-  },
-  {
-    id: "jpg-to-pdf",
-    title: "JPG to PDF",
-    description: "Convert JPG images to PDF documents",
-    from: "jpg",
-    to: "pdf",
-    fromLabel: "JPG",
-    toLabel: "PDF",
-    icon: FileImage,
-    color: "text-orange-500",
-    bgColor: "bg-orange-500/10",
-  },
-  {
-    id: "png-to-pdf",
-    title: "PNG to PDF",
-    description: "Convert PNG images to PDF documents",
-    from: "png",
-    to: "pdf",
-    fromLabel: "PNG",
-    toLabel: "PDF",
-    icon: FileImage,
-    color: "text-cyan-500",
-    bgColor: "bg-cyan-500/10",
-  },
-  {
-    id: "jpeg-to-pdf",
-    title: "JPEG to PDF",
-    description: "Convert JPEG images to PDF documents",
-    from: "jpeg",
-    to: "pdf",
-    fromLabel: "JPEG",
-    toLabel: "PDF",
-    icon: FileImage,
-    color: "text-amber-500",
-    bgColor: "bg-amber-500/10",
   },
   {
     id: "webp-to-pdf",
@@ -155,11 +119,8 @@ export function getToolById(id: string): Tool | undefined {
 export function getAcceptString(ext: string): string {
   const map: Record<string, string> = {
     pdf: ".pdf",
-    jpg: ".jpg,.jpeg",
-    jpeg: ".jpeg,.jpg",
-    png: ".png",
+    image: ".jpg,.jpeg,.png,.webp,.gif", 
     webp: ".webp",
-    gif: ".gif",
     docx: ".docx,.doc",
     csv: ".csv",
     txt: ".txt",
